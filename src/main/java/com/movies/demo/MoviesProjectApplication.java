@@ -13,14 +13,20 @@ public class MoviesProjectApplication {
 
 	@Autowired
 	private FilmRepository filmRepository;
+	private ActorRepository actorRepository;
 
 	public static void main(String[] args) {
 		SpringApplication.run(MoviesProjectApplication.class, args);
 	}
 
 	@GetMapping("/all")
-	public @ResponseBody Iterable <Film> getAllUsers() {
+	public @ResponseBody Iterable<Film>getAllUsers() {
 		return filmRepository.findAll();
+	}
+
+	@GetMapping("/actors")
+	public @ResponseBody Iterable<Actor>getAllActors() {
+		return actorRepository.findAll();
 	}
 
 	@PostMapping("/addfilm")
@@ -33,6 +39,17 @@ public class MoviesProjectApplication {
 
 		Film savedFilm = new Film(title,filmLength,description,rating,releaseYear);
 		filmRepository.save(savedFilm);
+		return "Saved";
+
+	}
+	@PostMapping("/addactor")
+	public @ResponseBody String addAActor (@RequestParam String firstName,
+										  @RequestParam String lastName ,
+										  @RequestParam int actorID ) {
+
+
+		Actor savedActor = new Actor(firstName,lastName, actorID);
+		actorRepository.save(savedActor);
 		return "Saved";
 
 	}
