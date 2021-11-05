@@ -25,7 +25,8 @@ public class Film {
         this.releaseYear = releaseYear;
     }
 
-    public Film(){}
+    public Film() {
+    }
 
     public String getTitle() {
         return title;
@@ -64,22 +65,11 @@ public class Film {
         return releaseYear;
     }
 
-    public void  setReleaseYear(int releaseYear) {
+    public void setReleaseYear(int releaseYear) {
         this.releaseYear = releaseYear;
     }
 
-
-
-    //public String getJsonObjectOfFilm(){
-        //return "{"+
-              //  "\"title\" :\" "+ title + "\"," +
-             //   "\"film length\" : \" " + filmLength + "\"," +
-              //  "\"description\" :\" "+ description + "\"," +
-              //  "\"rating\" :\" "+ rating + "\"," +
-              //  "\"release year\" :\" "+ releaseYear + "\"," +
-              //  "}";
-    }
-
+}
 
 
 

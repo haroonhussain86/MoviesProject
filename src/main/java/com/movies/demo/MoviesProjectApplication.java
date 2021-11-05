@@ -25,10 +25,6 @@ public class MoviesProjectApplication {
 		return filmRepository.findAll();
 	}
 
-
-
-	@PostMapping("")
-
 	@GetMapping("/actors")
 	public @ResponseBody Iterable<Actor>getAllActors() {
 		return actorRepository.findAll();
