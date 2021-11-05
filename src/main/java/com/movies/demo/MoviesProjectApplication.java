@@ -1,9 +1,9 @@
 package com.movies.demo;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.beans.factory.annotation.Autowired;
 
 
 @SpringBootApplication
@@ -13,6 +13,7 @@ public class MoviesProjectApplication {
 
 	@Autowired
 	private FilmRepository filmRepository;
+	@Autowired
 	private ActorRepository actorRepository;
 
 	public static void main(String[] args) {
@@ -20,9 +21,13 @@ public class MoviesProjectApplication {
 	}
 
 	@GetMapping("/all")
-	public @ResponseBody Iterable<Film>getAllUsers() {
+	public @ResponseBody Iterable<Film>getAllFilms() {
 		return filmRepository.findAll();
 	}
+
+
+
+	@PostMapping("")
 
 	@GetMapping("/actors")
 	public @ResponseBody Iterable<Actor>getAllActors() {
