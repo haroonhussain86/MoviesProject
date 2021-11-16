@@ -1,6 +1,10 @@
+application.yml
+application.properties
+
 HELP.md
+
 target/
-!.mvn/wrapper/maven-wrapper.jar
+!.mvn/wrapper/maven-wrapper.jargit remo
 !**/src/main/**/target/
 !**/src/test/**/target/
 
