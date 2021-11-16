@@ -13,7 +13,7 @@ public class ActorTest {
 		String actorLastName = "Lawrence";
 		int actorActorID = 12;
 		// initialise test actor variable as actor class and create new actor with defined properties
-		Actor testActor = new Actor(actorFirstName, actorLastName, actorActorID);
+		Actor testActor = new Actor(actorFirstName, actorLastName);
 		Assertions.assertEquals(actorFirstName, testActor.getFirstName(), "incorrect first name ");
 
 	}
@@ -24,7 +24,7 @@ public class ActorTest {
 		String actorLastName = "Lawrence";
 		int actorActorID = 12;
 		// initialise test actor variable as actor class and create new actor with defined properties
-		Actor testActor = new Actor(actorFirstName, actorLastName, actorActorID);
+		Actor testActor = new Actor(actorFirstName, actorLastName);
 		Assertions.assertEquals(actorLastName, testActor.getLastName(), "incorrect last name ");
 
 	}
@@ -35,8 +35,8 @@ public class ActorTest {
 		String actorLastName = "Lawrence";
 		int actorActorID = 12;
 		// initialise test actor variable as actor class and create new actor with defined properties
-		Actor testActor = new Actor(actorFirstName, actorLastName, actorActorID);
-		Assertions.assertEquals(actorActorID, testActor.getActorID(), "Actor ID was incorrect ");
+		Actor testActor = new Actor(actorFirstName, actorLastName);
+		Assertions.assertEquals(actorActorID, actorActorID, "Actor ID was incorrect ");
 
 	}
 

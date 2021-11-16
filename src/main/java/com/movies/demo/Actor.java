@@ -1,26 +1,22 @@
 package com.movies.demo;
 
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class Actor {
     @Id
-    @GeneratedValue(strategy = GenerationType.TABLE)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int actor_id;
+
     private String firstName;;
     private String lastName;
-    private int actorID;
 
 
-    public Actor(String firstName, String lastName,int actorID) {
+    public Actor(String firstName, String lastName) {
 
         this.firstName = firstName;
         this.lastName = lastName ;
-        this.actorID = actorID;
-
     }
 
     public Actor(){}
@@ -33,17 +29,10 @@ public class Actor {
     }
 
     public int getActorID() {
-        return actorID;
+        return actor_id;
     }
 
 
-   /// public String getJsonObjectOfActor(){
-     ///   return "{"+
-       ///         "\"first name\" :\" "+ firstName + "\"," +
-        ///        "\"last name \" : \" " + lastName + "\"," +
-        ///        "\"actor ID\" :\" "+ actorID + "\"," +
-        //        "}";
-   // }
 
 
 }

@@ -5,6 +5,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Optional;
 
 @SpringBootApplication
 @RestController
@@ -12,9 +13,9 @@ import org.springframework.web.bind.annotation.*;
 public class MoviesProjectApplication {
 
 	@Autowired
-	private FilmRepository filmRepository;
+	private FilmRepository FilmRepository;
 	@Autowired
-	private ActorRepository actorRepository;
+	private ActorRepository ActorRepository;
 
 	public static void main(String[] args) {
 		SpringApplication.run(MoviesProjectApplication.class, args);
@@ -22,35 +23,38 @@ public class MoviesProjectApplication {
 
 	@GetMapping("/all")
 	public @ResponseBody Iterable<Film>getAllFilms() {
-		return filmRepository.findAll();
+		return FilmRepository.findAll();
+	}
+
+	@GetMapping("/film/{filmId}")
+	public @ResponseBody
+	Optional<Film> getFilm(@PathVariable("filmId") int filmId) {
+		return FilmRepository.findById(filmId);
 	}
 
 	@GetMapping("/actors")
 	public @ResponseBody Iterable<Actor>getAllActors() {
-		return actorRepository.findAll();
+		return ActorRepository.findAll();
 	}
 
 	@PostMapping("/addfilm")
-	public @ResponseBody String addAFilm (@RequestParam String title,
-										  @RequestParam int filmLength ,
-										  @RequestParam String description,
-										  @RequestParam String rating,
-										  @RequestParam int releaseYear ) {
-
-
-		Film savedFilm = new Film(title,filmLength,description,rating,releaseYear);
-		filmRepository.save(savedFilm);
+	public @ResponseBody String addAFilm (@RequestParam  String title,
+										  @RequestParam  int length,
+										  @RequestParam  String description,
+										  @RequestParam  String rating,
+										  @RequestParam  int releaseYear ) {
+		Film newFilm = new Film(title,length,description,rating,releaseYear);
+		FilmRepository.save(newFilm);
 		return "Saved";
 
 	}
 	@PostMapping("/addactor")
 	public @ResponseBody String addAActor (@RequestParam String firstName,
-										  @RequestParam String lastName ,
-										  @RequestParam int actorID ) {
+										  @RequestParam String lastName ) {
 
 
-		Actor savedActor = new Actor(firstName,lastName, actorID);
-		actorRepository.save(savedActor);
+		Actor savedActor = new Actor(firstName,lastName);
+		ActorRepository.save(savedActor);
 		return "Saved";
 
 	}

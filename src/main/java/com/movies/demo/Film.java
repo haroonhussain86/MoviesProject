@@ -8,24 +8,34 @@ import javax.persistence.Id;
 public class Film {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.TABLE)
+    @GeneratedValue(strategy= GenerationType.IDENTITY)
+    private int film_id;
+
     private String title;
-    private int filmLength;
+    private int length;
     private String description;
     private String rating;
     private int releaseYear;
 
 
-    public Film(String title, int filmLength, String description, String rating, int releaseYear) {
+    public Film(String title, int length, String description, String rating, int releaseYear) {
 
         this.title = title;
-        this.filmLength = filmLength;
+        this.length = length;
         this.description = description;
         this.rating = rating;
         this.releaseYear = releaseYear;
     }
 
     public Film() {
+    }
+
+    public int getId() {
+        return film_id;
+    }
+
+    public void setId(int id) {
+        this.film_id = id;
     }
 
     public String getTitle() {
@@ -38,11 +48,11 @@ public class Film {
     }
 
     public int getFilmLength() {
-        return filmLength;
+        return length;
     }
 
-    public void setFilmLength(int filmLength) {
-        this.filmLength = filmLength;
+    public void setFilmLength(int length) {
+        this.length = length;
     }
 
     public String getDescription() {
