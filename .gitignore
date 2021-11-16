@@ -1,5 +1,3 @@
-#application.properties/
-#application.yml/
 
 HELP.md
 
@@ -35,3 +33,7 @@ build/
 
 ### VS Code ###
 .vscode/
+
+###  application files ###
+/src/main/resources/application.yml
+/src/main/resources/application.properties

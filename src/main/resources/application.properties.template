@@ -1,0 +1,19 @@
+
+#spring.datasource.url=
+#spring.datasource.username =
+#sprint.datasource.password =
+
+
+spring.jpa.show-sql = true
+spring.jpa.hibernate.ddl.-auto = create
+spring.jpa.database-platform =
+server.port=5000
+spring.jpa.properties.max_allowed_packet=2000
+
+
+#spring.jpa.hibernate.ddl-auto=update
+#spring.datasource.url=
+#spring.datasource.username=
+#spring.datasource.password=
+#spring.datasource.driver-class-name =
+#spring.jpa.show-sql: true
