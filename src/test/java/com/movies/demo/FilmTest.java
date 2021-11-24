@@ -15,7 +15,7 @@ public class FilmTest {
         String rating = "PG";
         int releaseYear = 2007;
         // initialise test film variable as film class and create new film with defined properties
-        Film testFilm = new Film(FilmTitle, filmLength, description, rating, releaseYear);
+        Film testFilm = new Film(2, FilmTitle, filmLength, description, rating, releaseYear);
         assertEquals("it was not the same title", FilmTitle, testFilm.getTitle());
 
 
@@ -30,7 +30,7 @@ public class FilmTest {
         String rating = "PG";
         int releaseYear = 2007;
         // initialise test film variable as film class and create new film with defined properties
-        Film testFilm = new Film(FilmTitle, filmLength, description, rating, releaseYear);
+        Film testFilm = new Film(2,FilmTitle, filmLength, description, rating, releaseYear);
         assertEquals("it was not the same length", filmLength, testFilm.getFilmLength());
 
     }
@@ -43,7 +43,7 @@ public class FilmTest {
         String rating = "PG";
         int releaseYear = 2007;
         // initialise test film variable as film class and create new film with defined properties
-        Film testFilm = new Film(FilmTitle, filmLength, description, rating, releaseYear);
+        Film testFilm = new Film(2,FilmTitle, filmLength, description, rating, releaseYear);
         assertEquals("it was not the same description", description, testFilm.getDescription());
 
     }
@@ -56,7 +56,7 @@ public class FilmTest {
         String rating = "PG";
         int releaseYear = 2007;
         // initialise test film variable as film class and create new film with defined properties
-        Film testFilm = new Film(FilmTitle, filmLength, description, rating, releaseYear);
+        Film testFilm = new Film(2,FilmTitle, filmLength, description, rating, releaseYear);
         assertEquals("it was not the same rating", rating, testFilm.getRating());
 
     }
@@ -69,7 +69,7 @@ public class FilmTest {
         String rating = "PG";
         int releaseYear = 2007;
         // initialise test film variable as film class and create new film with defined properties
-        Film testFilm = new Film(FilmTitle, filmLength, description, rating, releaseYear);
+        Film testFilm = new Film(2,FilmTitle, filmLength, description, rating, releaseYear);
         assertEquals("it was not the same year that it was released", releaseYear, testFilm.getReleaseYear());
 
     }

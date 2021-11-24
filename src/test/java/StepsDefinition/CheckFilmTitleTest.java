@@ -9,7 +9,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class CheckFilmTitleTest {
 
-    Film BadBoys = new Film("Bad Boys",100 , "", "", 200);
+    Film BadBoys = new Film(2,"Bad Boys",100 , "", "", 200);
 
     private String filmTitle;
     private int filmLength;

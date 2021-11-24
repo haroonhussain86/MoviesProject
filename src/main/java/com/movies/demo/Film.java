@@ -1,16 +1,13 @@
 package com.movies.demo;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class Film {
 
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
-    private int film_id;
-
+    @Column(name="film_id")
+    private int id;
     private String title;
     private int length;
     private String description;
@@ -18,8 +15,8 @@ public class Film {
     private int releaseYear;
 
 
-    public Film(String title, int length, String description, String rating, int releaseYear) {
-
+    public Film(int id, String title, int length, String description, String rating, int releaseYear) {
+        this.id = id;
         this.title = title;
         this.length = length;
         this.description = description;
@@ -31,11 +28,11 @@ public class Film {
     }
 
     public int getId() {
-        return film_id;
+        return id;
     }
 
     public void setId(int id) {
-        this.film_id = id;
+        this.id = id;
     }
 
     public String getTitle() {
@@ -77,6 +74,17 @@ public class Film {
 
     public void setReleaseYear(int releaseYear) {
         this.releaseYear = releaseYear;
+    }
+
+    public Film updateWith(Film film) {
+        return new Film(
+                this.id,
+                this.title,
+                this.length,
+                this.description,
+                this.rating,
+                this.releaseYear
+        );
     }
 
 }
