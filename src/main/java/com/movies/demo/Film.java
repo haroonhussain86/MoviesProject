@@ -76,9 +76,9 @@ public class Film {
         this.releaseYear = releaseYear;
     }
 
-    public Film updateWith(Film film) {
+    public Film updateWith(Film film, int oldId) {
         return new Film(
-                this.id,
+                oldId,
                 this.title,
                 this.length,
                 this.description,

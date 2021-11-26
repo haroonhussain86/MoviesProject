@@ -27,28 +27,11 @@ public class MoviesProjectApplication {
 		return FilmRepository.findAll();
 	}
 
-	@GetMapping("/film/{filmId}")
-	public @ResponseBody
-	Optional<Film> getFilm(@PathVariable("filmId") int filmId) {
-		return FilmRepository.findById(filmId);
-	}
-
 	@GetMapping("/actors")
 	public @ResponseBody Iterable<Actor>getAllActors() {
 		return ActorRepository.findAll();
 	}
 
-//	@PostMapping("/add")
-//	public @ResponseBody String addAFilm (@RequestParam  String title,
-//										  @RequestParam  int length,
-//										  @RequestParam  String description,
-//										  @RequestParam  String rating,
-//										  @RequestParam  int releaseYear ) {
-//		Film film = new Film(title,length,description,rating,releaseYear);
-//		FilmRepository.save(film);
-//		return "Saved new Film";
-//
-//	}
 
 	@PostMapping("/add")
 	public @ResponseBody String addAFilm (@RequestBody Film film  ) {
@@ -57,11 +40,17 @@ public class MoviesProjectApplication {
 
 	}
 
+	@GetMapping("/id/{id}")
+	public @ResponseBody
+	Optional<Film> getFilm(@PathVariable("id") int id) {
+		return FilmRepository.findById(id);
+	}
+
 	@PutMapping("/id/{id}")
 	public @ResponseBody String editFilm (@PathVariable("id") int id,
 										  @RequestBody Film updatedFilm ) {
 		Film film = FilmRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("Id not found"));
-		film.updateWith(updatedFilm);
+		film.updateWith(updatedFilm, id);
 		FilmRepository.save(film);
 		return "Updated film with id :" + id;
 
